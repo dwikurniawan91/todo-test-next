@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-	/* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // ... konfigurasi lainnya
+  logging: {
+    fetches: {
+      fullUrl: true, // Akan menampilkan URL lengkap dari setiap fetch
+    },
+  },
 };
 
 export default nextConfig;
