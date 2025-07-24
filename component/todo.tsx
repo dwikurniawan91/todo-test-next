@@ -71,7 +71,7 @@ export default function Todo({
 		<div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 p-4 font-inter">
 			<div className="max-w-4xl mx-auto bg-white shadow-2xl rounded-xl p-8 space-y-8">
 				<h1 className="text-5xl font-extrabold text-center text-gray-800 mb-8 tracking-tight">
-					Daftar Tugas Anda
+					Todo List
 				</h1>
 
 				<form
@@ -84,7 +84,7 @@ export default function Todo({
 						value={newTodoTitle}
 						onChange={(e) => setNewTodoTitle(e.target.value)}
 						className="flex-grow px-5 text-gray-800 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 text-lg placeholder-gray-500"
-						placeholder="Tambahkan tugas baru..."
+						placeholder="Add new todo..."
 						disabled={isAdding}
 					/>
 					<button
@@ -92,7 +92,7 @@ export default function Todo({
 						className="px-8 py-3 bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold text-lg rounded-lg shadow-md hover:shadow-lg transform hover:scale-105 transition duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-green-300 disabled:opacity-50 disabled:cursor-not-allowed"
 						disabled={isAdding}
 					>
-						{isAdding ? "Menambahkan..." : "Tambah Tugas"}
+						{isAdding ? "Adding..." : "Add"}
 					</button>
 				</form>
 
@@ -132,10 +132,10 @@ export default function Todo({
 									className={`px-4 py-2 rounded-full text-sm font-semibold ${
 										todo.completed
 											? "bg-green-200 text-green-800"
-											: "bg-yellow-200 text-yellow-800"
+											: ""
 									}`}
 								>
-									{todo.completed ? "Selesai" : "Belum Selesai"}
+									{todo.completed ? "Completed" : ""}
 								</span>
 							</li>
 						))}
@@ -144,7 +144,7 @@ export default function Todo({
 
 				{!showSpinner && (!todos || todos.length === 0) && (
 					<div className="text-center text-gray-600 text-xl py-10">
-						Tidak ada tugas yang ditemukan.
+						'(Empty todo list)'
 					</div>
 				)}
 
@@ -154,17 +154,17 @@ export default function Todo({
 						disabled={page === 0 || isLoading || isFetching}
 						className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition duration-200 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300"
 					>
-						Sebelumnya
+						Previous
 					</button>
 					<span className="text-xl font-semibold text-gray-700">
-						Halaman {page + 1}
+						Page {page + 1}
 					</span>
 					<button
 						onClick={handleNextPage}
 						disabled={isLoading || isFetching}
 						className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition duration-200 ease-in-out focus:outline-none focus:ring-4 focus:ring-blue-300"
 					>
-						Berikutnya
+						Next
 					</button>
 				</div>
 			</div>

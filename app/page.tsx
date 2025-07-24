@@ -3,7 +3,7 @@ import {
 	todoApi,
 } from "../lib/features/todos/todoApi"; 
 import Todo from "@/component/todo";
-export const revalidate = 2;
+export const revalidate = 60;
 
 // Fungsi untuk fetching data awal di Server Component
 async function getInitialTodos() {
